@@ -140,7 +140,9 @@ input[type=number] {
   background-color: hsl(var(--neutral3));
 }
 
-[name="tip"] {
+
+
+ /* [name="tip"] {
   position: absolute;
   inset:0;
   opacity: 0;
@@ -150,7 +152,7 @@ input[type=number] {
 
 [name="tip"]:checked+.tip-btn {
   background-color: hsl(var(--primary));
-}
+}  */
 
 /* display section */
 .display {
