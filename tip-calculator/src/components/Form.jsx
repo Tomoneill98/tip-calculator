@@ -7,9 +7,15 @@ function Form () {
     return (
         <div className="form">
             <div className="label-group">
-            <label className='label' htmlFor="bill">Bill</label>
-            <input type="number" id="bill"/>
-            <img src={poundIcon} className="icon"/>
+            <div className='label-wrapper'>
+                <label className='label' htmlFor="bill">Bill</label>
+                <p className='error'></p>
+                </div>
+           
+            <div className='number-wrapper'>
+                <input type="number" id="bill" className='number-input'/>
+                <img src={poundIcon} className="icon"/>
+                </div>
             </div>
 
 
@@ -21,10 +27,12 @@ function Form () {
             <div className="label-group">
             <div className='label-wrapper'>
                 <label htmlFor="People">Number of People</label>
-                <p>Error</p>
+                <p className='error'></p>
             </div>
-            <input type="number" id="people"/>
-              <img src={person} className="icon"/>
+            <div className='number-wrapper'>
+                <input type="number" id="people" className='number-input'/>
+                  <img src={person} className="icon"/>
+            </div>
             </div>
           
         </div>

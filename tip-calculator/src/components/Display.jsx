@@ -4,7 +4,6 @@ import React from "react"
 function Display() {
     return (
         <div className="display">
-            <div className="display-group">
                 <div className="display-row">
                         <div className="display-label">
                             <p className="header">Tip amount</p>
@@ -19,10 +18,9 @@ function Display() {
                         </div>
                             <p className="display-amount">£0.00</p>
                     </div>
+                    <Reset />
             </div>
-            
-                <Reset />
-        </div>
+     
     )
 }
 

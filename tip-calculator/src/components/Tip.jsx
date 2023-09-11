@@ -7,9 +7,9 @@ const tipAmount = [
 
 function Tip() {
     return (
-        <div className="tip-buttons">
+        <div className="tip-wrapper">
             {tipAmount.map((amount, index) => (
-                <button className="tip-amount" key={index} type="button">{amount}</button>
+                <button className="tip-btn" key={index} type="button">{amount}</button>
             ))}
         </div>
     )

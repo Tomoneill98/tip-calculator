@@ -17,9 +17,10 @@
   --neutral3: 185, 41%, 84%;
   --neutral4: 189, 41%, 97%;
   --white: 179, 41%, 99%;
+  --error: 12, 67%, 55%;
 
   /* utils */
-  --padding: clamp(2rem, 5vw, 4rem)
+  --padding: clamp(2rem, 4vw, 3.5rem)
 }
 
 body {
@@ -44,8 +45,114 @@ body {
   gap: var(--padding)
 }
 
+.form {
+  display:grid;
+  gap: var(--padding)
+}
+
+.label-group {
+  display: grid;
+  gap: .2rem;
+ text-align: left;
+ position: relative;
+}
+
+.label {
+  color: hsl(var(--text));
+  font-size: 1rem
+}
+
+[type="number"] {
+  width: 100%;
+  font: inherit;
+  text-align: right;
+  background-color: hsl(var(--neutral3));
+  border: none;
+  padding: .2rem .5rem;
+  border-radius: .3rem;
+}
+
+[type="number"]:invalid {
+  background-color: red;
+}
+
+/* remove arrows from number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: .5rem;
+  transform: translateY(-50%);
+}
+
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error {
+  color: hsl(var(--error));
+    font-size: 1rem
+}
+
+.number-wrapper {
+  position: relative
+}
+
+.tip-section {
+  display: grid;
+  /* justify-items: start; */
+  gap: .5rem;
+}
+
+.tip-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem
+}
+
+@media screen and (min-width: 768px) {
+  .tip-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.tip-btn {
+  background-color: hsl(var(--text));
+  color: hsl(var(--neutral4));
+  border-radius: .4rem;
+  padding: .2rem ;
+}
+
+.tip-btn:hover {
+  background-color: hsl(var(--neutral3));
+}
+
+[name="tip"] {
+  position: absolute;
+  inset:0;
+  opacity: 0;
+  cursor: pointer;
+}
 
 
+[name="tip"]:checked+.tip-btn {
+  background-color: hsl(var(--primary));
+}
+
+/* display section */
 .display {
   background-color: hsl(var(--text));
   padding: var(--padding);
@@ -63,9 +170,47 @@ body {
 .display-row {
   display: flex;
   justify-content: space-between;
+  gap: var(--padding);
   align-items: center;
 }
 
 .display-label {
-  display: grid
+  display: grid;
+  justify-items: start;
 }
+
+.header {
+  color: hsl(var(--white));
+  font-size: 1rem;
+}
+
+.unit {
+  color: hsl(var(--white));
+    font-size: .8rem;
+}
+
+.display-amount {
+  font-size: 2rem;
+  color: hsl(var(--primary))
+}
+
+.button {
+  font: inherit;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--text));
+  border: none;
+  border-radius: .2rem;
+  padding: .3rem .8rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.button[disabled] {
+opacity: .2;
+cursor: not-allowed
+}
+
+.button:not([disabled]):hover {
+  background-color: white;
+}
+
