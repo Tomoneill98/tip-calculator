@@ -26,13 +26,16 @@
 body {
   font-family: 'Space Mono', monospace;
   font-size: 1.5rem;
+  padding-block: var(--padding);
   background-color: hsl(var(--neutral3));
 }
 
 .app {
-  display: grid;
+  /* display: grid; */
   gap: 4rem;
   place-items: center;
+  margin-inline: auto;
+  max-width: 1000px;
 }
 
 .container {
@@ -41,7 +44,7 @@ body {
   border-radius: 2rem;
   box-shadow: 0 3rem 5rem hsl(var(--neutral2));
   display: grid;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   gap: var(--padding)
 }
 
@@ -72,9 +75,9 @@ body {
   border-radius: .3rem;
 }
 
-[type="number"]:invalid {
+/* [type="number"]:invalid {
   background-color: red;
-}
+} */
 
 /* remove arrows from number input */
 /* Chrome, Safari, Edge, Opera */
@@ -120,24 +123,22 @@ input[type=number] {
 .tip-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: .5rem
+  gap: .2rem
 }
 
-@media screen and (min-width: 768px) {
-  .tip-wrapper {
-      grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 .tip-btn {
   background-color: hsl(var(--text));
   color: hsl(var(--neutral4));
   border-radius: .4rem;
-  padding: .2rem ;
+  padding: .5rem ;
+  cursor: pointer;
+  font: inherit
 }
 
 .tip-btn:hover {
   background-color: hsl(var(--neutral3));
+  color: hsl(var(--text))
 }
 
 
@@ -216,3 +217,14 @@ cursor: not-allowed
   background-color: white;
 }
 
+/* media queries */
+
+@media screen and (min-width: 768px) {
+  .tip-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container {
+    grid-auto-flow: column;
+  }
+}
