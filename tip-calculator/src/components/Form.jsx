@@ -1,4 +1,4 @@
-import poundIcon from '../assets/images/icon-dollar.svg'
+import poundIcon from '../assets/images/pound.png'
 import person from '../assets/images/icon-person.svg'
 import React from 'react'
 import Tip from './Tip'
@@ -20,7 +20,7 @@ function Form ({handleBillInput, bill, billError, handlePeople, people, peopleEr
            
             <div className='number-wrapper'>
                 <input type="number" id="bill" className='number-input' onInput={handleBillInput} value={bill}/>
-                <img src={poundIcon} className="icon"/>
+                <img src={poundIcon} style={{width:13, height:13}} className="icon"/>
                 </div>
             </div>
 
