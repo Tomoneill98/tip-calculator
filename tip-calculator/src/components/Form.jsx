@@ -3,7 +3,7 @@ import person from '../assets/images/icon-person.svg'
 import React from 'react'
 import Tip from './Tip'
 
-function Form ({handleBillAmountInput, billAmount, handleSelectedTip, billError, handlePeople, people}) {
+function Form ({handleBillInput, bill, handleSelectedTip, billError, handlePeople, people, peopleError}) {
     return (
         <div className="form">
             <div className="label-group">
@@ -13,7 +13,7 @@ function Form ({handleBillAmountInput, billAmount, handleSelectedTip, billError,
                 </div>
            
             <div className='number-wrapper'>
-                <input type="number" id="bill" className='number-input' onInput={handleBillAmountInput} value={billAmount}/>
+                <input type="number" id="bill" className='number-input' onInput={handleBillInput} value={bill}/>
                 <img src={poundIcon} className="icon"/>
                 </div>
             </div>
@@ -26,8 +26,8 @@ function Form ({handleBillAmountInput, billAmount, handleSelectedTip, billError,
 
             <div className="label-group">
             <div className='label-wrapper'>
-                <label htmlFor="People">Number of People</label>
-                <p className='error'></p>
+                <label htmlFor="People" className='label'>Number of People</label>
+                <p className='error'>{peopleError ? "Whole numbers only" : ""}</p>
             </div>
             <div className='number-wrapper'>
                 <input type="number" id="people" className='number-input' onInput={handlePeople} value={people}/>

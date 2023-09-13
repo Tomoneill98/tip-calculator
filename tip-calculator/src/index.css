@@ -225,6 +225,6 @@ cursor: not-allowed
   }
 
   .container {
-    grid-auto-flow: column;
+    grid-auto-flow: column
   }
 }

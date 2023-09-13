@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Display from './components/Display'
 import Form from './components/Form'
 
@@ -8,34 +8,58 @@ import './index.css'
 
 
 function App() {
-  const [billAmount, setBillAmount] = useState(0)
-   const [billError, setBillError] = useState(false)
+  const [bill, setBill] = useState(0)
+  const [tip, setTip] = useState(0)
   const [people, setPeople] = useState(0)
-  const [isTipSelected, setIsTipASelected] = useState(false)
-  const [selectedTip, setSelectedTip] = useState("")
+  const [total, setTotal] = useState(0)
+  const [calculatedTip, setCalculatedTip] = useState(0)
+  const [totalPerPerson, setTotalPerPerson] = useState(0)
 
-function handleBillAmountInput(e){
+  const [selectedTip, setSelectedTip] = useState("")
+  
+  const [billError, setBillError] = useState(false)
+  const [peopleError, setPeopleError] = useState("")
+
+  useEffect(() => {
+    if(bill > 0 && people > 0 && tip > 0) {
+      setCalculatedTip(bill * (selectedTip / 100))
+      setTotal(calculatedTip + bill)
+    }
+  }, [bill, people, tip, calculatedTip])
+
+  // function totalAmount() {
+  //   setTotal((bill / people) + tip)
+  // }
+
+  // function tipAmount() {
+  //   setTip(bill * (selectedTip / 100) / people) 
+  // }
+
+function handleBillInput(e){
   const input = e.target.value;
   const regex = /^\d+(\.\d{1,2})?$/;
   if(input.length === 0 || regex.test(input)){
-    setBillAmount(input)
+    setBill(input)
     setBillError(false)
   } else {
     setBillError(true)
   }
-  setBillAmount(e.target.value)
+  setBill(e.target.value)
 }
 
 function handleSelectedTip(e) {
-setSelectedTip(prevTip => e.target.value)
+setSelectedTip(e.target.value)
 console.log(selectedTip)
 }
 
 function handlePeople(e) {
-    const input = e.target.value
-  const regex = /^[0-9]$/
-  if (regex.text(input)) {
-    set
+  const input = e.target.value;
+  const regex = /^[0-9]+$/;
+  if (input.length === 0 || regex.test(input)) {
+    setPeople(input)
+    setPeopleError(false)
+  } else {
+    setPeopleError(true)
   }
   setPeople(e.target.value)
 }
@@ -44,14 +68,20 @@ function handlePeople(e) {
   <div className='app'>
     <div className='container'>
       <Form 
-      billAmount={billAmount}
-      handleBillAmountInput={handleBillAmountInput}
+      bill={bill}
+      setBill={setBill}
+      tip={tip}
+      setTip={setTip}
+      people={people}
+      setPeople={setPeople}
+      handleBillInput={handleBillInput}
       handleSelectedTip={handleSelectedTip}
       billError={billError}
-      handlePeople={handlePeople}
-      people={people}
+      peopleError={peopleError}
       />
-      <Display />
+      <Display    
+      calculatedTip={calculatedTip}
+      total={total}/>
     </div>
   </div>
   )
