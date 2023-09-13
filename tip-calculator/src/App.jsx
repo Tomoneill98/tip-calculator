@@ -8,32 +8,24 @@ import './index.css'
 
 
 function App() {
-  const [bill, setBill] = useState(0)
-  const [tip, setTip] = useState(0)
-  const [people, setPeople] = useState(0)
+  const [bill, setBill] = useState("")
+  const [tip, setTip] = useState("")
+  const [people, setPeople] = useState("")
   const [total, setTotal] = useState(0)
   const [calculatedTip, setCalculatedTip] = useState(0)
-  const [totalPerPerson, setTotalPerPerson] = useState(0)
 
-  const [selectedTip, setSelectedTip] = useState("")
-  
   const [billError, setBillError] = useState(false)
   const [peopleError, setPeopleError] = useState("")
 
   useEffect(() => {
+    console.log({bill, people, tip})
     if(bill > 0 && people > 0 && tip > 0) {
-      setCalculatedTip(bill * (selectedTip / 100))
-      setTotal(calculatedTip + bill)
+      setCalculatedTip(bill * (tip / 100) / people)
+      setTotal(calculatedTip + bill / people)
     }
   }, [bill, people, tip, calculatedTip])
 
-  // function totalAmount() {
-  //   setTotal((bill / people) + tip)
-  // }
 
-  // function tipAmount() {
-  //   setTip(bill * (selectedTip / 100) / people) 
-  // }
 
 function handleBillInput(e){
   const input = e.target.value;
@@ -45,11 +37,6 @@ function handleBillInput(e){
     setBillError(true)
   }
   setBill(e.target.value)
-}
-
-function handleSelectedTip(e) {
-setSelectedTip(e.target.value)
-console.log(selectedTip)
 }
 
 function handlePeople(e) {
@@ -64,6 +51,14 @@ function handlePeople(e) {
   setPeople(e.target.value)
 }
 
+function handleResetButton(e) {
+   setBill("");
+    setTip("");
+    setPeople("");
+    setCalculatedTip(0);
+    setTotal(0);
+}
+
   return (
   <div className='app'>
     <div className='container'>
@@ -74,14 +69,15 @@ function handlePeople(e) {
       setTip={setTip}
       people={people}
       setPeople={setPeople}
+      handlePeople={handlePeople}
       handleBillInput={handleBillInput}
-      handleSelectedTip={handleSelectedTip}
       billError={billError}
       peopleError={peopleError}
       />
       <Display    
       calculatedTip={calculatedTip}
-      total={total}/>
+      total={total}
+      handleResetButton={handleResetButton}/>
     </div>
   </div>
   )

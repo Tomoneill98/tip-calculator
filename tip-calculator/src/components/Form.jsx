@@ -3,8 +3,14 @@ import person from '../assets/images/icon-person.svg'
 import React from 'react'
 import Tip from './Tip'
 
-function Form ({handleBillInput, bill, handleSelectedTip, billError, handlePeople, people, peopleError}) {
+function Form ({handleBillInput, bill, billError, handlePeople, people, peopleError, setTip, tip}) {
+
+    function handleSelectedTip(e) {
+    setTip(+e.target.value)
+    console.log(tip)
+}
     return (
+        
         <div className="form">
             <div className="label-group">
             <div className='label-wrapper'>
@@ -18,7 +24,6 @@ function Form ({handleBillInput, bill, handleSelectedTip, billError, handlePeopl
                 </div>
             </div>
 
-
             <div className='tip-section'>
             <p className='label'>Select Tip %</p>
             <Tip handleSelectedTip={handleSelectedTip}/>
@@ -27,7 +32,7 @@ function Form ({handleBillInput, bill, handleSelectedTip, billError, handlePeopl
             <div className="label-group">
             <div className='label-wrapper'>
                 <label htmlFor="People" className='label'>Number of People</label>
-                <p className='error'>{peopleError ? "Whole numbers only" : ""}</p>
+                <p className='error'>{peopleError ? "Whole people only!" : ""}</p>
             </div>
             <div className='number-wrapper'>
                 <input type="number" id="people" className='number-input' onInput={handlePeople} value={people}/>

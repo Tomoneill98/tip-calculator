@@ -141,6 +141,11 @@ input[type=number] {
   color: hsl(var(--text))
 }
 
+.customtip-btn {
+    cursor: pointer;
+    text-align: center;
+}
+
 
 
  /* [name="tip"] {

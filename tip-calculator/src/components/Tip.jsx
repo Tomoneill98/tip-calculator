@@ -9,9 +9,9 @@ function Tip({handleSelectedTip}) {
     return (
         <div className="tip-wrapper">
             {tipAmount.map((amount, index) => (
-                <button className="tip-btn" key={index} type="button" onClick={handleSelectedTip} value={amount}>{amount}%</button>
+                <button className="tip-btn" key={index} type="radio" onClick={handleSelectedTip} value={amount}>{amount}%</button>
             ))}
-            <button className="customtip-btn" type="button" onClick={handleSelectedTip}>Custom</button>
+            <input className="customtip-btn" type="number" placeholder="Custom" onInput={handleSelectedTip}/>
         </div>
     )
 }

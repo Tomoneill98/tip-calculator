@@ -1,7 +1,7 @@
 
-function Reset () {
+function Reset ({total, handleResetButton}) {
     return (
-        <button className="button" disabled>Reset</button>
+        total ? <button className="button" onClick={handleResetButton}>Reset</button> : <button className="button" type="radio" disabled>Reset</button> 
     )
 }
 
