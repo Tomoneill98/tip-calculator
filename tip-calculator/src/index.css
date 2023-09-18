@@ -10,11 +10,10 @@
 }
 
 :root {
-  --primary: 172, 67%, 45%;
+  --strongCyan: 172, 67%, 45%;
   --text: 183, 100%, 15%;
-  --neutral1: 186, 14%, 43%; 
-  --neutral2: 184, 14%, 56%; 
-  --neutral3: 185, 41%, 84%;
+  --grayCyan: 184, 14%, 56%; 
+  --lightGrayCyan: 185, 41%, 84%;
   --neutral4: 189, 41%, 97%;
   --white: 179, 41%, 99%;
   --error: 12, 67%, 55%;
@@ -27,7 +26,7 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: 1.5rem;
   padding-block: var(--padding);
-  background-color: hsl(var(--neutral3));
+  background-color: hsl(var(--lightGrayCyan));
 }
 
 .app {
@@ -42,7 +41,7 @@ body {
   padding: var(--padding);
   background-color: hsl(var(--white));
   border-radius: 2rem;
-  box-shadow: 0 3rem 5rem hsl(var(--neutral2));
+  box-shadow: 0 3rem 5rem hsl(var(--grayCyan));
   display: grid;
   grid-auto-flow: row;
   gap: var(--padding)
@@ -69,7 +68,7 @@ body {
   width: 100%;
   font: inherit;
   text-align: right;
-  background-color: hsl(var(--neutral3));
+  background-color: hsl(var(--lightGrayCyan));
   border: none;
   padding: .2rem .5rem;
   border-radius: .3rem;
@@ -137,7 +136,7 @@ input[type=number] {
 }
 
 .tip-btn:hover {
-  background-color: hsl(var(--neutral3));
+  background-color: hsl(var(--lightGrayCyan));
   color: hsl(var(--text))
 }
 
@@ -157,7 +156,7 @@ input[type=number] {
 
 
 [name="tip"]:checked+.tip-btn {
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--strongCyan));
 }  */
 
 /* display section */
@@ -199,12 +198,12 @@ input[type=number] {
 
 .display-amount {
   font-size: 2rem;
-  color: hsl(var(--primary))
+  color: hsl(var(--strongCyan))
 }
 
 .button {
   font: inherit;
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--strongCyan));
   color: hsl(var(--text));
   border: none;
   border-radius: .2rem;
