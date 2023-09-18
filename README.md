@@ -11,7 +11,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://toms-tip-calculator.netlify.app/]
+- Live Site URL: https://toms-tip-calculator.netlify.app/
 
 ### Built with
 
