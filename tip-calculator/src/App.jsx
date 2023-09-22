@@ -1,9 +1,7 @@
-
 import './index.css'
 import React, { useEffect, useState } from 'react'
 import Display from './components/Display'
 import Form from './components/Form'
-
 
 function App() {
   const [bill, setBill] = useState("")
@@ -21,8 +19,6 @@ function App() {
       setTotal(calculatedTip + bill / people)
     }
   }, [bill, people, tip, calculatedTip])
-
-
 
 function handleBillInput(e){
   const input = e.target.value;
