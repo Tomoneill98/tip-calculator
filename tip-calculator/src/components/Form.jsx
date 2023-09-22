@@ -1,5 +1,5 @@
-import poundIcon from '../assets/images/pound.png'
-import person from '../assets/images/icon-person.svg'
+import poundIcon from '../assets/pound.png'
+import person from '../assets/icon-person.svg'
 import React from 'react'
 import Tip from './Tip'
 
