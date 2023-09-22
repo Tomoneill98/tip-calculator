@@ -28,7 +28,6 @@ function handleBillInput(e){
   } else {
     setBillError(true)
   }
-  setBill(e.target.value)
 }
 
 function handlePeople(e) {
