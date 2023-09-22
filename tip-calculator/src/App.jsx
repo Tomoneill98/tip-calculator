@@ -13,7 +13,6 @@ function App() {
   const [peopleError, setPeopleError] = useState("")
 
   useEffect(() => {
-    console.log({bill, people, tip})
     if(bill > 0 && people > 0 && tip > 0) {
       setCalculatedTip(bill * (tip / 100) / people)
       setTotal(calculatedTip + bill / people)
