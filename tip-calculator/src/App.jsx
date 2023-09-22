@@ -39,7 +39,6 @@ function handlePeople(e) {
   } else {
     setPeopleError(true)
   }
-  setPeople(e.target.value)
 }
 
 function handleResetButton(e) {
