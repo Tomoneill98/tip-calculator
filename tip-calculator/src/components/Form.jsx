@@ -7,7 +7,6 @@ function Form ({handleBillInput, bill, billError, handlePeople, people, peopleEr
 
     function handleSelectedTip(e) {
     setTip(+e.target.value)
-    console.log(tip)
 }
     return (
         
