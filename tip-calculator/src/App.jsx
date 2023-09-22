@@ -1,10 +1,8 @@
 import './App.css'
+import './index.css'
 import React, { useEffect, useState } from 'react'
 import Display from './components/Display'
 import Form from './components/Form'
-
-// style
-import './index.css'
 
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
   const [people, setPeople] = useState("")
   const [total, setTotal] = useState(0)
   const [calculatedTip, setCalculatedTip] = useState(0)
-
   const [billError, setBillError] = useState(false)
   const [peopleError, setPeopleError] = useState("")
 
